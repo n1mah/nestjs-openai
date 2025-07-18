@@ -12,7 +12,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     {
       provide: OpenAI,
       useFactory: (configService: ConfigService) =>
-        new OpenAI({ apiKey: configService.getOrThrow('OPENAI_API_KEY') }),
+        new OpenAI({
+          apiKey: configService.getOrThrow('OPENAI_API_KEY'),
+          baseURL: 'https://openrouter.ai/api/v1',
+        }),
       inject: [ConfigService],
     },
   ],
