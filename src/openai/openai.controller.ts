@@ -10,4 +10,15 @@ export class OpenaiController {
   async CreateChatCompletion(@Body() body: CreateChatCompletion) {
     return this.openaiService.createChatCompletion(body.message);
   }
+
+  @Post('summarize')
+  async summarizeReviews() {
+    const reviews = [
+      'Great product, loved the camera.',
+      'Poor battery life.',
+      'Works fast and smooth.',
+    ];
+    const summary = await this.openaiService.summarizeReviewMessages(reviews);
+    return { summary };
+  }
 }
