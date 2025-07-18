@@ -13,7 +13,7 @@ Do not include any explanation or extra text.
 export class OpenaiService {
   constructor(private readonly openAI: OpenAI) {}
 
-  async createChatCompletion(userMessages: ChatCompletionMessageDto[]){
+  async createChatCompletion(userMessages: ChatCompletionMessageDto[]) {
     const messages: ChatCompletionMessageParam[] = [
       { role: 'system', content: INSTRUCTION },
       ...userMessages.map(({ role, content }: ChatCompletionMessageDto) => ({
