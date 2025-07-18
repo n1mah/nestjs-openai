@@ -1,10 +1,12 @@
 import { IsArray, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
 
+export type RoleType = 'user' | 'system' | 'assistant' | 'function';
+
 export class ChatCompletionMessageDto {
   @IsString()
   @IsNotEmpty()
-  role: string;
+  role: RoleType;
 
   @IsString()
   @IsNotEmpty()
